@@ -1,0 +1,45 @@
+using System;
+
+namespace vetor1aula5
+{
+    class Program
+    {
+        static int calcsenha (int[] senha)
+        {
+            int soma = 0;
+
+            for (int i = 0; i < 9; i++)
+            {
+
+                if (senha[i] % 2 == 0)
+                {
+                    soma += senha[i];
+                }
+               
+                 
+                
+
+            }
+            int result = soma * senha[0];
+            return soma;
+        }
+
+        static void Main(string[] args)
+        {
+            int[] senha = new int[9];
+            for (int i = 0; i < 9; i++)
+            {
+                Console.WriteLine("Digite os 9 números: ");
+                senha[i] = Convert.ToInt16(Console.ReadLine());
+
+            }
+            int nova_senha = calcsenha(senha);
+            Console.WriteLine("Sua senha é:  " + nova_senha);
+            Console.ReadKey();
+
+
+        }
+
+    }
+
+}
