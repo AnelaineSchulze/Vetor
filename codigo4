@@ -1,0 +1,25 @@
+using System;
+
+namespace vetor123
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] meuarray = new int[5];
+             for( int i=0; i< meuarray.Length; i++)
+            {
+                Console.WriteLine("Digite um número: ");
+                meuarray[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            
+            
+            Console.WriteLine();
+            for (int i=0; i< meuarray.Length; i++)
+            {
+                Console.WriteLine("Posição {0}: {1}", i, meuarray[i]);
+            }
+            Console.ReadKey();
+        }
+    }
+}
