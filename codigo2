@@ -1,0 +1,41 @@
+using System;
+
+namespace Vetor2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float soma = 0, total = 0;
+            float[] idade = new float[10];
+            Cadastra(idade, ref soma, ref total);
+            float med = CalcMedia(idade, ref soma, ref total);
+
+            Console.WriteLine("O total de alunos com mais de 25 anos na sala é {0}", med);
+            Console.ReadKey();
+
+        }
+
+        static void Cadastra(float[] idade, ref float soma, ref float total)
+        {
+            for (int a = 0; a < 10; a++)
+            {
+                Console.WriteLine("Idade do aluno {0}: ", a + 1);
+                idade[a] = float.Parse(Console.ReadLine());
+                soma = soma + idade[a];
+                if (idade[a] > 25)
+                {
+                    total = total + 1;
+                }
+
+            }
+
+        }
+        static float CalcMedia(float[] idade, ref float soma, ref float total)
+        {
+            float vetor;
+            vetor = soma / 10;
+            return (total);
+        }
+    }
+}
