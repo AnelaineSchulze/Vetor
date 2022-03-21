@@ -1,0 +1,113 @@
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] nome = new string[4];
+            int[] idade = new int[4];
+            double[] valor_imovel = new double[4];
+            Menu(ref nome, ref idade, ref valor_imovel);
+        }
+        static void Cadastrar(ref string[] nome, ref int[] idade, ref double[] valor_imovel)
+        {
+            if(idade[0] == 0)
+            {
+                for (int i = 0; i <= 2; i++)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Digite o nome do contribuinte: ");
+                    nome[i] = Console.ReadLine().ToUpper();
+                    Console.Clear();
+                    Console.WriteLine("Digite a idade do contribuinte: ");
+                    idade[i] = int.Parse(Console.ReadLine());
+                    Console.Clear();
+                    Console.WriteLine("Digite o valor do imóvel: ");
+                    valor_imovel[i] = double.Parse(Console.ReadLine());
+                }
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Máximo de cadastro alcançado !");
+            }
+        }
+
+        static void Listar(string[] nome, int[] idade, double[] valor_imovel)
+        {
+            Console.Clear();
+            if(idade[0] == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Não há nenhum contribuinte cadastrado !");
+                Console.ReadKey();
+            }
+            else
+            {
+                for(int i = 0; i <= 2; i++)
+                {
+                    Console.WriteLine("Nome contribuinte: {0}\nIdade: {1}\nValor do imóvel: {2}\n\n", nome[i], idade[i], valor_imovel[i]);
+                }
+                Console.ReadKey();
+            }
+        }
+
+        static void Filtro(string[] nome, int[] idade, double[] valor_imovel)
+        {
+            if(idade[0] == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Não há nenhum imóvel cadastrado !");
+                Console.ReadKey();
+            }
+            else
+            {
+                double valor;
+                Console.Clear();
+                Console.WriteLine("Digite o valor de imóvel para filtrar: ");
+                valor = double.Parse(Console.ReadLine());
+                Console.Clear();
+                for (int i = 0; i <= 2; i++)
+                {
+                    if (valor_imovel[i] <= valor)
+                    {
+                        Console.WriteLine("Nome contribuinte: {0}\nIdade: {1}\nValor imóvel: {2}", nome[i], idade[i], valor_imovel[i]);
+                    }
+                }
+                Console.ReadKey();
+            }
+        }
+
+        static void Menu(ref string[] nome, ref int[] idade, ref double[] valor_imovel)
+        {
+
+            bool[] controle = new bool[5];
+            int escolha;
+            controle[0] = true;
+            while (controle[0] == true)
+            {
+                Console.Clear();
+                Console.WriteLine("1- Cadastrar contribuintes\n2- Listar contribuintes\n3- Exibir contribuintes pelo valor do imóvel\n4- Sair");
+                escolha = int.Parse(Console.ReadLine());
+                switch (escolha)
+                {
+                    case 1:
+                        Cadastrar(ref nome, ref idade, ref valor_imovel);
+                        break;
+                    case 2:
+                        Listar(nome, idade, valor_imovel);
+                        break;
+                    case 3:
+                        Filtro(nome, idade, valor_imovel);
+                        break;
+                    case 4:
+                        controle[0] = false;
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Número inválido, tente novamente !");
+                        Console.ReadKey();
+                        break;
+                }
+            }
+        }
+    }
