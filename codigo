@@ -1,0 +1,57 @@
+using System;
+
+namespace Vetor1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declaração de variaveis
+            
+            double medtotal, result;
+            int a = 1;
+            double [] alunos = new double[10];
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                //Entrada de valores pelo usuário
+                Console.WriteLine("Digite a idade {0} do aluno: ", a++);
+                alunos[i] = double.Parse(Console.ReadLine());
+            }
+
+            result = soma(alunos, 10);
+            medtotal = media(result, 10);
+            Console.WriteLine("A média de idade dos alunos é {0}", medtotal);
+            Console.ReadKey();
+
+
+     
+        }
+
+        
+        static double soma(double[] n1, int n2)
+        {
+            double cont = 0;
+
+            for (int i = 0; i < n2; i++)
+            {
+                cont = cont + n1[i];
+            }
+            return cont;
+        }
+
+
+
+        static double media( double n1, int n2)
+        {
+            double result;
+
+            result = n1 / n2;
+
+            return result;
+        }
+
+    }
+
+}
